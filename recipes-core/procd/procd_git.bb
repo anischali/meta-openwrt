@@ -93,7 +93,7 @@ RDEPENDS:${PN} += "\
                   ${PN}-inittab \
                   "
 
-FILES:${PN} = "/"
+FILES:${PN} = "/*"
 
 ALTERNATIVE:${PN} = "init"
 

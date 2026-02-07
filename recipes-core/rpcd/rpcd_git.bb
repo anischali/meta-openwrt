@@ -34,6 +34,6 @@ do_install:append() {
     ln -s /usr/sbin/rpcd ${D}/sbin/rpcd
 }
 
-FILES:${PN}  += "${libdir}/*"
+FILES:${PN}  += "${libdir}/* ${sbindir}/*"
 
 RDEPENDS:${PN} += "ucode iwinfo"

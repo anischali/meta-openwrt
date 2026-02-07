@@ -36,4 +36,4 @@ do_install:append() {
 	ln -s /usr/sbin/jffs2reset ${D}/sbin/jffs2reset
 }
 
-FILES:${PN}  += "${libdir}/*"
+FILES:${PN}  += "/sbin/* /usr/sbin/*"

@@ -37,6 +37,10 @@ do_install:append () {
         mkdir -p ${STMP}
         cp -dR --preserve=mode,links ${SG}/package/base-files/files/* ${STMP}/
 
+        mv ${STMP}/bin ${STMP}/usr/bin
+        mv ${STMP}/sbin ${STMP}/usr/sbin
+        mv ${STMP}/lib ${STMP}/usr/lib
+
         rm -f ${STMP}/etc/passwd
         rm -f ${STMP}/etc/shadow
         rm -f ${STMP}/etc/group

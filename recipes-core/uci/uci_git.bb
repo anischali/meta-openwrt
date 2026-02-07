@@ -24,10 +24,8 @@ OECMAKE_C_FLAGS += "-I${STAGING_INCDIR}/lua5.1"
 do_install:append() {
     install -Dm 0755 ${OR}/lib/config/uci.sh ${D}${base_libdir}/config/uci.sh
 
-    mkdir -p ${D}/sbin
     mkdir -p ${D}/usr/sbin
     ln -s /usr/bin/uci ${D}/usr/sbin/uci
-    ln -s /usr/bin/uci ${D}/sbin/uci
 }
 
-FILES:${PN} += "${base_libdir}"
+FILES:${PN} += "${base_libdir} /usr/sbin"

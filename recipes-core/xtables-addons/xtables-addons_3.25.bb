@@ -30,7 +30,12 @@ do_compile:prepend () {
     touch ${S}/extensions/LUA/lua/include/stddef.h
 }
 
-EXTRA_OEMAKE = "M=${S}/extentions DESTDIR=${D} V=1"
+do_install:append () {
+    mv ${D}/lib/* ${D}/usr/lib/
+    rmdir ${D}/lib
+}
+
+EXTRA_OEMAKE = "M=${S}/extentions DESTDIR=${D}/usr V=1"
 MODULES_INSTALL_TARGET = "install"
 # make_scripts requires kernel source directory to create
 # kernel scripts
@@ -39,3 +44,5 @@ do_make_scripts[depends] += "virtual/kernel:do_shared_workdir"
 FILES:${PN} += "${libexecdir}/xtables-addons ${sbindir}/iptaccount ${libdir}/libxt_ACCOUNT_cl.so.* ${libdir}/iptables"
 
 RDEPENDS:${PN} += "perl"
+
+INSANE_SKIP:${PN} += "installed-vs-shipped xtables-addons-dbg buildpaths"

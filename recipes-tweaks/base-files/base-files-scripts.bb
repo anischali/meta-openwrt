@@ -29,31 +29,31 @@ PACKAGES = "\
 do_install:append () {
     mkdir -p ${D}${sysconfdir}/config
 
-    install -Dm 0644 ${SC}/lib/functions.sh ${D}/lib/functions.sh
-    install -Dm 0644 ${SC}/lib/functions/uci-defaults.sh ${D}/lib/functions/uci-defaults.sh
-    install -Dm 0644 ${SC}/lib/functions/system.sh ${D}/lib/functions/system.sh
-    install -Dm 0755 ${SC}/bin/ipcalc.sh ${D}/bin/ipcalc.sh
+    install -Dm 0644 ${SC}/lib/functions.sh ${D}/usr/lib/functions.sh
+    install -Dm 0644 ${SC}/lib/functions/uci-defaults.sh ${D}/usr/lib/functions/uci-defaults.sh
+    install -Dm 0644 ${SC}/lib/functions/system.sh ${D}/usr/lib/functions/system.sh
+    install -Dm 0755 ${SC}/bin/ipcalc.sh ${D}/usr/bin/ipcalc.sh
     install -Dm 0644 ${SC}/etc/sysupgrade.conf ${D}/etc/sysupgrade.conf
-    install -Dm 0755 ${SC}/sbin/sysupgrade ${D}/sbin/sysupgrade
-    install -Dm 0755 ${SC}/sbin/firstboot ${D}/sbin/firstboot
+    install -Dm 0755 ${SC}/sbin/sysupgrade ${D}/usr/sbin/sysupgrade
+    install -Dm 0755 ${SC}/sbin/firstboot ${D}/usr/sbin/firstboot
 
-    install -dm 0755 ${D}/lib
-    cp -dR --preserve=mode,links ${SC}/lib/upgrade ${D}/lib
+    install -dm 0755 ${D}/usr/lib
+    cp -dR --preserve=mode,links ${SC}/lib/upgrade ${D}/usr/lib
 }
 
 FILES:${PN}-openwrt = "\
-                      /lib/functions.sh \
-                      /lib/functions/uci-defaults.sh \
-                      /lib/functions/system.sh \
-                      /bin/ipcalc.sh \
+                      /usr/lib/functions.sh \
+                      /usr/lib/functions/uci-defaults.sh \
+                      /usr/lib/functions/system.sh \
+                      /usr/bin/ipcalc.sh \
                       ${sysconfdir}/config \
                       "
 
 FILES:${PN}-sysupgrade = "\
                          /etc/sysupgrade.conf \
-                         /sbin/sysupgrade \
-                         /lib/upgrade/* \
-                         /sbin/firstboot \
+                         /usr/sbin/sysupgrade \
+                         /usr/lib/upgrade/* \
+                         /usr/sbin/firstboot \
                          "
 
 CONFFILES:${PN}-openwrt += "\

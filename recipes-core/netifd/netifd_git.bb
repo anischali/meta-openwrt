@@ -76,6 +76,9 @@ FILES:${PN} += "\
                ${base_libdir}/functions/network.sh \
                ${@bb.utils.contains('IMAGE_INSTALL', 'base-files ', '', '${sysconfdir}/config/network', d)} \
                ${@bb.utils.contains('COMBINED_FEATURES', 'wifi', '/sbin/wifi', '', d)} \
+               ${sbindir}/* \
+               ${bindir}/* \
+               ${base_libdir}/* \
                "
 
 CONFFILES:${PN}:append = "\

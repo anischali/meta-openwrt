@@ -35,6 +35,10 @@ RDEPENDS:${PN} += "\
                   "
 
 FILES:${PN} += "\
-               ${libdir} \
-               ${base_sbindir} \
+               ${libdir}/* \
+               ${base_sbindir}/* \
+               ${sbindir}/* \
+               ${bindir}/* \
+               ${base_bindir}/* \
+               ${base_sbindir}/* \
                "
