@@ -22,8 +22,8 @@ do_install:append() {
 	install -m 0644 ${S}/*.h ${D}${includedir}/libubox
 
 	install -dm 0755 ${D}${base_libdir}
-	#mv ${D}${libdir}/libustream-ssl.so ${D}${base_libdir}/libustream-ssl.so
-	#rmdir --ignore-fail-on-non-empty ${D}${libdir}
+	mv ${D}${libdir}/libustream-ssl.so ${D}${base_libdir}/libustream-ssl.so
+	rmdir --ignore-fail-on-non-empty ${D}${libdir}
 }
 
 FILES:${PN}  += "${base_libdir}/*"
